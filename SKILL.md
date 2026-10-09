@@ -1,5 +1,7 @@
 # MirrorPCE Night Chain — Unattended Overnight Batch Scheduling for Claude
 
+**Version:** v2.1 (2026-10-09)
+
 Schedule a chain of Claude sessions that run overnight without supervision.
 All windows are created up front; each one reads a single **schedule file**, pushes every work lane one step forward, and records its status so the next window knows where to pick up.
 
@@ -144,6 +146,16 @@ Close the window by writing "{Nx} done HH:MM" to the window status — last.
 1. Read the report's "Pending decisions" and decide them one at a time.
 2. Pick up each lane's "next step" from the report during the day (merge to main, second review round, etc.).
 3. Retrospective: write lessons into this skill's lessons table or the worker's instructions file — **a gate is more reliable than a memory**.
+
+## Customize for your setup
+
+This skill is the generic core. You can extend it with your own:
+
+- Lessons table — add rows from your own runs, each with a gate.
+- Dispatch script — route tasks to your own workers.
+- Notification channel — alert yourself on finish or stall.
+- Window counter or budget control — cap calls or spend per window.
+- Schedule-file template — your preferred starting format.
 
 ## Lessons learned
 

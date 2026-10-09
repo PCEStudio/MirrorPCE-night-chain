@@ -2,6 +2,8 @@
 
 **Unattended overnight batch scheduling for Claude** — set up a chain of tasks, approve once, sleep, wake up to results.
 
+**Version:** v2.1 (2026-10-09)
+
 > Built with Claude's latest capabilities (scheduled tasks, persistent memory, MCP tools — available since mid-2025) and battle-tested on the Mirror PCE project. Works best with strong frontier-class models.
 
 ---
@@ -155,6 +157,16 @@ MirrorPCE-night-chain/
 - **Log decisions, don't wait**: Anything that needs you goes into "Pending decisions"; the chain keeps going.
 - **Check your timezone**: All `run_once_at` values are UTC. A common mistake is forgetting to convert.
 
+## Customize for your setup
+
+Night Chain ships with the generic core only. You can add your own pieces on top:
+
+- **Your own lessons table** — record failures from your runs and the gate that prevents each one.
+- **Your own dispatch script** — hand tasks to whatever workers or agents you use.
+- **Your own notification channel** — get pinged when the chain finishes or stalls.
+- **Your own window counter or budget control** — cap tool calls or spend per window.
+- **Your own schedule-file template** — start each night from a format that fits your work.
+
 ## Contributing
 
 Found a bug? Have a better workaround for a platform limitation? PRs welcome.
@@ -169,7 +181,7 @@ This skill is built on the latest Claude capabilities — scheduled tasks, persi
 
 ## Changelog
 
-- **2026-10-08 — v2 alignment**: single schedule file as source of truth; parallel work lanes; all triggers created at once and never changed mid-run (timers for mid-run additions); completion judged from the window-status log with in-session waiting; pending-decisions log; watch checks and on-duty session; worker on-the-spot adjustments; single pilot window; updated timing benchmarks and lessons.
+- **2026-10-09 — v2.1**: single schedule file as source of truth; parallel work lanes; all triggers created at once and never changed mid-run (timers for mid-run additions); completion judged from the window-status log with in-session waiting; pending-decisions log; watch checks and on-duty session; worker on-the-spot adjustments; single pilot window; updated timing benchmarks and lessons.
 - **Initial release**: sequential chain with handoff file, 3 pilots, and `send_later` retries.
 
 ## License
